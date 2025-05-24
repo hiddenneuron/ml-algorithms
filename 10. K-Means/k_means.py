@@ -1,3 +1,53 @@
+'''
+K-Means
+
+K-Means is an unsupervised learning algorithm used for clustering data into groups based on similarity. It groups data points into **k** clusters, where each point belongs to the cluster with the nearest mean.
+
+Estimation: The data has **k** natural groupings, and each group can be represented by its center (mean).
+
+Goal: To partition the data into **k** clusters such that the sum of squared distances between data points and their respective cluster centers is minimized.
+
+Steps:
+
+I. Initialization:
+
+1. Choose the number of clusters (k).
+2. Randomly initialize k cluster centers (called centroids). These can be chosen randomly from the dataset or initialized in other ways like k-means++.
+
+II. Iterative Optimization (Repeat until convergence or max iterations):
+
+1. Assign Step:
+
+   * For each data point, compute the distance to each of the k centroids.
+   * Assign each point to the nearest centroid (cluster).
+
+2. Update Step:
+
+   * Recalculate each centroid as the mean of all data points assigned to that cluster.
+
+3. Repeat the assign and update steps until:
+
+   * The assignments no longer change.
+   * Or a maximum number of iterations is reached.
+   * Or the centroid movements are very small (convergence).
+
+III. Result:
+
+* After convergence, the algorithm outputs:
+
+  * The final cluster centers.
+  * The cluster assignment for each data point.
+
+Key Points:
+
+* Simple and fast algorithm.
+* Sensitive to initial placement of centroids (can lead to different results).
+* Works well with spherical clusters of similar size.
+* Doesn't work well with non-spherical or overlapping clusters or outliers.
+* Choosing the right value of k is important (can use methods like the elbow method).
+
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 

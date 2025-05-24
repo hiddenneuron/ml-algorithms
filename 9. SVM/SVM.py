@@ -1,3 +1,56 @@
+'''
+Support Vector Machine (SVM)
+
+SVM is a powerful supervised learning algorithm used for classification (and also regression). It works by finding the optimal boundary (hyperplane) that best separates data points of different classes.
+
+Estimation: The data can be separated by a hyperplane with a maximum margin (distance) between classes.
+
+Goal: To find the hyperplane that maximizes the margin between the two classes. The points that lie closest to the hyperplane are called support vectors.
+
+Steps:
+
+I. Training Phase:
+
+1. Input the labeled training data.
+
+2. Find the Optimal Hyperplane:
+
+   * A hyperplane is a line in 2D, a plane in 3D, and a flat surface in higher dimensions.
+   * The SVM tries to find the hyperplane that separates the classes with the widest margin.
+   * Margin = distance between the hyperplane and the nearest data points from each class.
+   * These nearest points are the “support vectors” and are critical in defining the decision boundary.
+
+3. Solve Optimization Problem:
+
+   * The algorithm solves a mathematical optimization problem to maximize the margin.
+   * For hard margin SVM: assumes perfect separation with no error.
+   * For soft margin SVM: allows some misclassification but tries to minimize it using a penalty parameter (C), which controls the trade-off between margin size and classification error.
+
+4. Use Kernel Trick (if needed):
+
+   * If the data is not linearly separable, map it to a higher-dimensional space using a kernel function (e.g., linear, polynomial, radial basis function).
+   * This allows SVM to find a linear separation in that higher-dimensional space.
+
+II. Prediction Phase:
+
+1. Input a new data point.
+
+2. Compute which side of the hyperplane the point lies on using the learned weights and bias (or kernel function if used).
+
+3. Assign the class based on the sign of the output:
+
+   * If (w · x + b) > 0, classify as class 1
+   * If (w · x + b) < 0, classify as class 0
+
+Key Points:
+
+* Effective in high-dimensional spaces.
+* Works well even when number of dimensions > number of samples.
+* Memory-efficient because it only uses support vectors.
+* Choice of kernel and parameter C affects performance.
+
+'''
+
 import numpy as np
 
 class SVM:

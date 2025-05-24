@@ -1,3 +1,53 @@
+'''
+Perceptron
+
+The perceptron is one of the simplest types of artificial neural networks used for binary classification. It models a single neuron that makes decisions by weighing input features.
+
+Estimation: The data is linearly separable, meaning a straight line (or hyperplane) can divide the classes.
+
+Goal: To find a set of weights and a bias that can correctly classify the input data into two classes.
+
+Model:
+Output = 1 if (w · x + b) ≥ 0
+Output = 0 otherwise
+Where w is the weight vector, x is the input vector, and b is the bias.
+
+Steps:
+
+I. Training Phase:
+
+1. Initialization:
+
+   * Set all weights and the bias to zero (or small random values).
+   * Choose a learning rate (a small positive number).
+
+2. Iterative Update:
+
+   * For each training sample:
+     a) Calculate the predicted output using:
+     y\_pred = 1 if (w · x + b) ≥ 0, else 0
+     b) Compare with actual label y.
+     c) If prediction is wrong, update the weights and bias:
+
+     * w = w + learning\_rate \* (y - y\_pred) \* x
+     * b = b + learning\_rate \* (y - y\_pred)
+   * Repeat for multiple passes (epochs) over the training data until all points are correctly classified or a maximum number of iterations is reached.
+
+II. Prediction Phase:
+
+1. Input a new sample x\_new.
+2. Compute:
+   y\_pred = 1 if (w · x\_new + b) ≥ 0, else 0
+3. Output the predicted class.
+
+Key Points:
+
+* Only works if the data is linearly separable.
+* Fast and simple to implement.
+* Forms the foundation for more complex models like multilayer perceptrons (MLPs).
+
+'''
+
 import numpy as np
 
 

@@ -1,3 +1,54 @@
+'''
+Naive Bayes
+
+Naive Bayes is a simple and fast classification algorithm based on Bayes’ Theorem. It is especially useful for text
+classification problems like spam detection or sentiment analysis.
+
+Estimation: The features are conditionally independent given the class label. This is the “naive” assumption.
+
+Goal: To predict the class of a data point by calculating the probability of each class given the input features and
+choosing the class with the highest probability.
+
+Bayes’ Theorem:
+P(Class | Data) = (P(Data | Class) \* P(Class)) / P(Data)
+
+Steps:
+
+I. Training Phase:
+
+1. Calculate Prior Probabilities:
+   * For each class label, calculate the probability of that class in the training data.
+   * P(Class) = (Number of samples in class) / (Total number of samples)
+
+2. Calculate Likelihood (Conditional Probabilities):
+   * For each feature, calculate the probability of the feature value given each class.
+   * For categorical features: count how often a feature value appears in each class.
+   * For continuous features: assume a distribution (usually Gaussian) and calculate mean and variance per class.
+
+3. Store these probabilities for later use during prediction.
+
+II. Prediction Phase:
+
+1. Input a New Sample:
+   * Take a new data point with known features but unknown class.
+
+2. Apply Bayes’ Theorem:
+   * For each class, calculate:
+     P(Class | Features) ∝ P(Feature1 | Class) \* P(Feature2 | Class) \* ... \* P(Class)
+
+   * Ignore P(Data) since it’s the same for all classes and doesn’t affect which class has the highest probability.
+
+3. Choose the Class:
+   * Pick the class with the highest calculated probability as the prediction.
+
+Key Points:
+
+* The independence assumption may not always hold, but the algorithm still works well in practice.
+* Works well with high-dimensional data like text.
+* Variants include Gaussian Naive Bayes (for continuous data), Multinomial Naive Bayes (for count data), and Bernoulli Naive Bayes (for binary features).
+
+'''
+
 import numpy as np
 
 class NaiveBayes:
